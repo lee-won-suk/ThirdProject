@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jin.Classes.IClassDao">
+
+
+<insert id="ClassCreate" parameterType="com.jin.Classes.ClassInfo">
+	INSERT INTO ClassInfo
+    (NickName,className,Cgenre,CDetailgenre,Ccity, Conline, price, contents,  Cmaterials)
+VALUES
+    (#{nickname , jdbcType=VARCHAR },#{classname},
+    #{cgenre},#{cdetailgenre},#{ccity},#{conline},#{price},#{contents},#{cmaterials})
+</insert>
+
+
+
+<select id="ClassMainProc"   resultType="com.jin.Classes.ClassInfo">
+	select * from classinfo
+	where cgenre='요리'
+</select>
+
+<select id="getDetailClass" parameterType="String"  resultType="com.jin.Classes.ClassInfo">
+	select * from classinfo
+	where cdetailgenre= #{datailname}
+</select>
+
+
+<select id="getReview" parameterType="String"  resultType="com.jin.Classes.Classreviews">
+	select * from classreviews
+	where classname= #{classname}
+</select>
+
+<select id="getCreateList" parameterType="String"  resultType="com.jin.Classes.Classcreateinfo">
+	select * from Classcreateinfo
+	where classname= #{classname}
+</select>
+
+<select id="getStarVal"  resultType="float">
+	select nvl( avg(starvalue), 0)
+	from classreviews
+	where classname in
+	<foreach item="item" collection="list"
+      open="(" separator="," close=")">
+        #{item.classname}
+  </foreach>
+</select>
+
+<select id="ClassSearch" parameterType="Map"  resultType="com.jin.Classes.ClassInfo">
+	select * from classinfo
+	where classname like '%'||#{word}||'%' 
+	and conline=#{line}
+</select>
+
+
+<select id="getrecentDate" parameterType="Map"  resultType="int">
+	    select cdate from Classcreateinfo
+		where classname= #{classname} 
+		<![CDATA[and rownum<=1]]>	
+   	 	order by cdate asc    
+</select>
+
+
+<select id="findNickname" parameterType="Map"  resultType="int">
+	SELECT	nvl( max(count(*)) , 0) 
+			FROM classdatelist
+			where nickname=#{nickname}
+            and cdate=#{date}
+            group by nickname
+</select>
+
+<insert id="ClassJoin" parameterType="Map">
+	INSERT INTO ClassDateList
+    (className,NickName,Cdate)
+VALUES
+    (#{classname},#{nickname},#{date})
+</insert>
+
+
+
+<insert id="ClassDetailCreate" parameterType="com.jin.Classes.Classcreateinfo">
+	INSERT INTO ClassCreateInfo
+    (className,Cdate,place,Cpeople,startTime,endTime)
+VALUES
+    ( #{classname},#{cdate},#{place},#{cpeople},#{starttime},#{endtime} )
+</insert>
+
+
+
+<insert id="SaveReview" parameterType="com.jin.Classes.Classreviews">
+INSERT INTO ClassReviews
+    (className,review,starValue, NickName)
+VALUES
+    (#{classname}, #{review}, #{starvalue}, #{nickname}) 
+
+</insert>
+
+
+</mapper>
