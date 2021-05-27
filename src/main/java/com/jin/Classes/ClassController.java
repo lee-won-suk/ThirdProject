@@ -44,7 +44,7 @@ public class ClassController {
 		//별점 가져오기
 		List<Float>	starvalue= iClassServ.getStarVal(classInfo);
 		
-	
+	 
 		
 		model.addAttribute("classLst", classInfo);
 		model.addAttribute("starvalue",starvalue);
