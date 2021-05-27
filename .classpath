@@ -39,6 +39,9 @@
 		<attributes>
 			<attribute name="module" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
+
+			<attribute name="owner.project.facets" value="java"/>
+
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
