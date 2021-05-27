@@ -36,7 +36,7 @@ public class ClassController {
 	
 
 	//ClassMainProc() 클래스 사진 및 설명(클래스 정보 DB데이터랑 후기DB에서 별점평균 가져온다.
-	//기본값 요리로띄움
+	//기본값 요리로띄움mhj
 	@RequestMapping(value = "/ClassMainProc")
 	public String ClassMainProc(Model model) {
 		
@@ -179,7 +179,7 @@ public class ClassController {
 		model.addAttribute("classname",classname);
 		model.addAttribute("classcontent",classcontent);
 		
-		
+		logger.warn("test");
 		
 		return "forward:/class/ClassMainProc";
 		
