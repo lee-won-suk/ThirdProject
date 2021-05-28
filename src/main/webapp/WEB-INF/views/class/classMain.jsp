@@ -151,7 +151,7 @@ $(document).ready(function(){
      <td>
     <a 	href="${home}class/ClassDetailProc?classname=${classinfo.classname}&&classcontent=${classinfo.contents}
     &&nickname=${classinfo.nickname}"
-    	><img style="width: 300px; height:200px;"/></a>
+    	><img src="${home}/resources/assets/img/${classinfo.classname}.jpg"	 style="width: 300px; height:200px;"/></a>
 		
 		<br/>
 		${classinfo.classname}<br/>

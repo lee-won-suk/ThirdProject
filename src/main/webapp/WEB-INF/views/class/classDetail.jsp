@@ -32,7 +32,7 @@
 	<tr align="center">
 		<td    style="width: 80px; height:40px;" colspan="5"  >
 		<div align="center" style="width:600px; height:200px; border: 1px solid ; ">
-		<img  style="width:600px; height:200px;"/>
+		<img src="${home}/resources/assets/img/${classname}.jpg"  style="width:600px; height:200px;"/>
 		
 		
 		</div>
