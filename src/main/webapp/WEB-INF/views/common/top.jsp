@@ -89,7 +89,7 @@
                 <div class="text-center">
                     <ul align="left" class="fclass">
    					      <li id="class"><a href="${topHome}/class/ClassMainProc">클래스</a></li>
-   					      <li id="class"><a href="${topHome}index?formpath=socialmain">소셜모임</a></li>
+   					      <li id="class"><a href="${topHome}social/SocialMainProc">소셜모임</a></li>
     				</ul>	
                 </div>
             </div>
