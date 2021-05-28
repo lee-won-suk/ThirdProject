@@ -13,10 +13,10 @@
 	where cdetailgenre= #{datailname}
 </select>
 
-
-
-
-
+<insert id="SocialCreate" parameterType="com.jin.Social.Socialmeeting">
+	INSERT INTO socialmeeting (Mname, Mgenre, MDetailgenre, Mcity, Mdetails, Mpeople, Mestablish)
+	VALUES (#{mname}, #{mgenre},#{mdetailgenre}, #{mcity}, #{mdetails}, 1, 1)
+</insert>
 <!-- 
 <insert id="ClassCreate" parameterType="com.jin.Classes.ClassInfo">
 	INSERT INTO ClassInfo

@@ -108,7 +108,7 @@ $(document).ready(function(){
 	
 	
 	<td><button 
-	formaction="${home}/index?formpath=classMember"  class="topbutton3"  >소셜모임생성</button></td>
+	formaction="${home}/index?formpath=CreateSocial"  class="topbutton3"  >모임생성</button></td>
 	
 	
 	

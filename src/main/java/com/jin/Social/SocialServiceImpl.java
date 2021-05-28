@@ -28,16 +28,23 @@ public class SocialServiceImpl implements ISocialService {
 	public List<Socialmeeting> SocialMainProc() {
 		return iSocialDao.SocialMainProc();
 	}
+	//소셜 모임 생성
+	@Override
+	public void SocialCreate(Socialmeeting smeeting) {
+		logger.warn("모임 생성이 완료되었습니다");
+		iSocialDao.SocialCreate(smeeting);
+	}
+	
 	@Override
 	public List<SocialCreateInfo> getMDetails(String mname) {
 		return null;
 	}
-
-
+	
 	@Override
 	public List<SocialCreateInfo> getMestablish(String mname) {
 		return null;
 	}
+	
 	
 	/*
 	@Override

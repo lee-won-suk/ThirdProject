@@ -11,6 +11,8 @@ public interface ISocialDao {
 
 	public List<Socialmeeting> SocialMainProc();
 	
+	public void SocialCreate(Socialmeeting smeeting);
+	
 	public List<SocialCreateInfo> getMDetails(String mname);
 
 	public List<SocialCreateInfo> getMestablish(String mname);

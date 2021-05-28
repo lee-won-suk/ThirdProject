@@ -9,11 +9,12 @@ import com.jin.Classes.Classreviews;
 
 public interface ISocialService {
 	public List<Socialmeeting> SocialMainProc();
+
+	public void SocialCreate(Socialmeeting smeeting);
 	
 	public List<SocialCreateInfo> getMDetails(String mname);
 
 	public List<SocialCreateInfo> getMestablish(String mname);
-	
 /*
 	public List<Float> getStarVal(List<SocialInfo> SocialInfo);
 

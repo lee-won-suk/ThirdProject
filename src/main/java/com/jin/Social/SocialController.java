@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.jin.Classes.ClassInfo;
 import com.jin.Classes.Classcreateinfo;
 import com.jin.Classes.Classreviews;
 
@@ -73,7 +74,12 @@ public class SocialController {
 			return "forward:/index?formpath=CreateInnerSocial";
 		}
 	
-	
+		@RequestMapping(value = "/SocialCreate")
+		public String SocialCreate(Model model, Socialmeeting smeeting ,HttpSession session) {
+			 iSocialServ.SocialCreate(smeeting);
+			return "forward:/index?formpath=classMain";
+		}
+		
 	
 	
 	
