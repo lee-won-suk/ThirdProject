@@ -29,9 +29,13 @@ VALUES
 	where classname= #{classname}
 </select>
 
-<select id="getCreateList" parameterType="String"  resultType="com.jin.Classes.Classcreateinfo">
+<select id="getCreateList" parameterType="Map"  resultType="com.jin.Classes.Classcreateinfo">
 	select * from Classcreateinfo
 	where classname= #{classname}
+	<![CDATA[
+	and cdate>=#{date}
+	and rownum<=2
+	]]>
 </select>
 
 <select id="getStarVal"  resultType="float">
@@ -73,6 +77,15 @@ VALUES
 VALUES
     (#{classname},#{nickname},#{date})
 </insert>
+
+<insert id="increaseJoinMember" parameterType="Map">
+	UPDATE ClassCreateInfo
+SET
+    Cpeople = Cpeople + 1 
+WHERE className =#{classname}
+and cdate=#{date}
+</insert>
+
 
 
 

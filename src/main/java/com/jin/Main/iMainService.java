@@ -2,7 +2,7 @@ package com.jin.Main;
 
 import java.util.List;
 
-public interface IMainDao {
+public interface iMainService {
 
 	public List<Socialmeeting> getMainSocial();
 

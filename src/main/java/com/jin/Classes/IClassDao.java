@@ -15,7 +15,7 @@ public interface IClassDao {
 
 	public List<Classreviews> getReview(String classname);
 
-	public List<Classcreateinfo> getCreateList(String classname);
+	public List<Classcreateinfo> getCreateList(Map<String, Object> getListMap);
 
 	public void ClassJoin(Map<String, Object> joinMap);
 
@@ -28,6 +28,8 @@ public interface IClassDao {
 	public void SaveReview(Classreviews classreviews);
 
 	public void ClassCreate(ClassInfo classinfo);
+
+	public void increaseJoinMember(Map<String, Object> joinMap);
 
 	
 }
