@@ -25,7 +25,7 @@ public class CommonController {
 	 */
 	@RequestMapping(value = "/")
 	public String home(Model model) {
-		model.addAttribute("formpath", "loginmain");
+		model.addAttribute("formpath", "main/mainProc");
 		//return "home";
 		
 		return "index";

@@ -56,8 +56,13 @@ public class ClassServiceImpl implements IClassService {
 
 	@Override
 	public List<Classcreateinfo> getCreateList(String classname) {
-		// TODO Auto-generated method stub
-		return iClassDao.getCreateList(classname);
+		Map<String,Object> getListMap=new HashMap<String, Object>();
+		getListMap.put("classname",classname);
+		getListMap.put("date",getdate());//가장 빠르면서 오늘날짜보다 이전엔 클래스 예정날짜를 가져와야 한다.
+		
+		
+		
+		return iClassDao.getCreateList(getListMap);
 	}
 
 	
@@ -82,7 +87,7 @@ public class ClassServiceImpl implements IClassService {
 		
 		if(nickCnt!=NICKNAMEEXIST) {
 		iClassDao.ClassJoin(joinMap);
-		//iClassDao.increaseJoinMember(joinMap);		
+		iClassDao.increaseJoinMember(joinMap);		
 		return 1;
 		}
 		return 0; //이미 신청을 한경우

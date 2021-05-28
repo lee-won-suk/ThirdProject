@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.jin.Login.Member;
+
 /**
  * Handles requests for the application home page.
  */
@@ -21,6 +23,18 @@ public class MainController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 	
+	@RequestMapping(value = "/mainProc")
+	public String loginProc(Model model, Member member) {
+
+	
+		//현재 인기있는 소셜 모임
+		
+		//현재 인기있는 클래스
+		
+		
+		//model.addAttribute("msg", "잘못된 계정정보입니다.");
+		 return "main/loginmain";
+	}
 
 	
 
