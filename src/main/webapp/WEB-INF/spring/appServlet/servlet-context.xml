@@ -21,10 +21,10 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.jin.hobby.*" />
-	<context:component-scan base-package="com.jin.Classes.*" />
-	<context:component-scan base-package="com.jin.Login.*" />
-	<context:component-scan base-package="com.jin.Main.*" />
-	<context:component-scan base-package="com.jin.Profile.*" />
-	<context:component-scan base-package="com.jin.Social.*" />
+	<context:component-scan base-package="com.jin.hobby" />
+	<context:component-scan base-package="com.jin.Classes" />
+	<context:component-scan base-package="com.jin.Login" />
+	<context:component-scan base-package="com.jin.Main" />
+	<context:component-scan base-package="com.jin.Profile" />
+	<context:component-scan base-package="com.jin.Social" />
 </beans:beans>

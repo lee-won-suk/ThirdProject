@@ -2,10 +2,12 @@ package com.jin.Main;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,13 +24,16 @@ import com.jin.Login.Member;
 public class MainController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
+	@Autowired
+	private iMainService iMainServ;
+	
 	
 	@RequestMapping(value = "/mainProc")
 	public String loginProc(Model model, Member member) {
 
 	
 		//현재 인기있는 소셜 모임
-		
+		List<Socialmeeting> hotSocialList=iMainServ.getMainSocial();
 		//현재 인기있는 클래스
 		
 		
