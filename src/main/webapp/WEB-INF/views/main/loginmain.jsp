@@ -37,26 +37,77 @@
     <center>
         <!-- Portfolio Grid-->
         <section class="page-section bg-light" id="portfolio">
-            <div class="container">
-            
+            <div class="container">  
                  <div>
-               		 <p align="left">이용자님의 모임 소식</p>
-               		 <table>
+                  <c:if test="${ empty id	 }">
+               		 <p align="left">인기있는 소셜 모임</p>
+               		 <table style="width: 1300px" border="1" >
+               		 <tr	align="left">             		
+               		 <c:forEach var="SocialList" items="${SocialList}"  >
                		 	<td>
-               		 		모임명<br/>
-							내용<br/>
-							날짜<br/>
-							시간 장소           		 		
+               		 	<img src="${home}/resources/assets/img/${SocialList.mname}.jpg"	 style="width: 300px; height:200px;"/></a>
+               		 		<br/>${SocialList.mname}<br/>
+							${SocialList.mgenre} ${SocialList.mdetailgenre}<br/>							        		 		
                		 	</td>
-               		 	
+               		 	</c:forEach> 	
+               		 	</tr>
+               		 	</table>
+               		 	<p align="left">현재 인기있는 클래스</p>
+               		 	<table style="width: 1300px" border="1" >
+               		 	<tr	align="left">
+               		 	 <c:forEach var="classinfo" items="${ClassList}"  >
+               		 	<td>
+               		 	<a 	href="${home}class/ClassDetailProc?classname=${classinfo.classname}&&classcontent=${classinfo.contents}
+   							 &&nickname=${classinfo.nickname}"
+    				><img src="${home}/resources/assets/img/${classinfo.classname}.jpg"	 style="width: 300px; height:200px;"/></a>
+               		 		<br/>${classinfo.classname}<br/>
+							${classinfo.cgenre} ${classinfo.cdetailgenre}<br/>			        		 		
+               		 	</td>
+               		 	</c:forEach>
+               		 	</tr>		 	
                		 </table>
+               		 </c:if>
+               		
+               		
+              
+              
+              
+              <c:if test="${ ! empty id	 }">
+               		 <p align="left"> ${nickname}님께 추천드리는 소셜 모임</p>
+               		 <table style="width: 1300px" border="1" >
+               		 <tr	align="left">             		
+               		 <c:forEach var="SocialList" items="${SocialList}"  >
+               		 	<td>
+               		 	<img src="${home}/resources/assets/img/${SocialList.mname}.jpg"	 style="width: 300px; height:200px;"/></a>
+               		 		<br/>${SocialList.mname}<br/>
+							${SocialList.mgenre} ${SocialList.mdetailgenre}<br/>							        		 		
+               		 	</td>
+               		 	</c:forEach> 	
+               		 	</tr>
+               		 	</table>
+               		 	<p align="left">${nickname}님이 좋아하실만한 클래스</p>
+               		 	<table style="width: 1300px" border="1" >
+               		 	<tr	align="left">
+               		 	 <c:forEach var="classinfo" items="${ClassList}"  >
+               		 	<td>
+               		 	<a 	href="${home}class/ClassDetailProc?classname=${classinfo.classname}&&classcontent=${classinfo.contents}
+   							 &&nickname=${classinfo.nickname}"
+    				><img src="${home}/resources/assets/img/${classinfo.classname}.jpg"	 style="width: 300px; height:200px;"/></a>
+               		 		<br/>${classinfo.classname}<br/>
+							${classinfo.cgenre} ${classinfo.cdetailgenre}<br/>			        		 		
+               		 	</td>
+               		 	</c:forEach>
+               		 	</tr>		 	
+               		 </table>
+               		 </c:if>
+               		
+               		
+               		
+                   		 
                </div>
                
                
-                <div class="row">
-                <p align="left">이용자님에게 인기있는 클래스</p>
-                   
-
+                
 <form>
 <table style="width: 1000px;"  >
 	<tr>
