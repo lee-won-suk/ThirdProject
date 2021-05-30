@@ -53,7 +53,7 @@ public class LoginController {
 	@RequestMapping(value = "/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "main/loginmain";
+		return "forward:/main/mainProc";
 	}
 
 }

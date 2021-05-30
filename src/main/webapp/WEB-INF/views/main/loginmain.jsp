@@ -41,10 +41,11 @@
                  <div>
                   <c:if test="${ empty id	 }">
                		 <p align="left">인기있는 소셜 모임</p>
+               		 
                		 <table style="width: 1300px" border="1" >
                		 <tr	align="left">             		
                		 <c:forEach var="SocialList" items="${SocialList}"  >
-               		 	<td>
+               		 	<td >
                		 	<img src="${home}/resources/assets/img/${SocialList.mname}.jpg"	 style="width: 300px; height:200px;"/></a>
                		 		<br/>${SocialList.mname}<br/>
 							${SocialList.mgenre} ${SocialList.mdetailgenre}<br/>							        		 		
@@ -52,7 +53,9 @@
                		 	</c:forEach> 	
                		 	</tr>
                		 	</table>
+               		 	
                		 	<p align="left">현재 인기있는 클래스</p>
+               		 	
                		 	<table style="width: 1300px" border="1" >
                		 	<tr	align="left">
                		 	 <c:forEach var="classinfo" items="${ClassList}"  >
@@ -76,11 +79,11 @@
                		 <p align="left"> ${nickname}님께 추천드리는 소셜 모임</p>
                		 <table style="width: 1300px" border="1" >
                		 <tr	align="left">             		
-               		 <c:forEach var="SocialList" items="${SocialList}"  >
-               		 	<td>
-               		 	<img src="${home}/resources/assets/img/${SocialList.mname}.jpg"	 style="width: 300px; height:200px;"/></a>
-               		 		<br/>${SocialList.mname}<br/>
-							${SocialList.mgenre} ${SocialList.mdetailgenre}<br/>							        		 		
+               		 <c:forEach var="usrSocialList" items="${usrSocialList}"  >
+               		 	<td style="width:400px">
+               		 	<img src="${home}/resources/assets/img/${usrSocialList.mname}.jpg"	 style="width: 300px; height:200px;"/></a>
+               		 		<br/>${usrSocialList.mname}<br/>
+							${usrSocialList.mgenre} ${usrSocialList.mdetailgenre}<br/>							        		 		
                		 	</td>
                		 	</c:forEach> 	
                		 	</tr>
@@ -88,8 +91,8 @@
                		 	<p align="left">${nickname}님이 좋아하실만한 클래스</p>
                		 	<table style="width: 1300px" border="1" >
                		 	<tr	align="left">
-               		 	 <c:forEach var="classinfo" items="${ClassList}"  >
-               		 	<td>
+               		 	 <c:forEach var="classinfo" items="${usrClassList}"  >
+               		 	<td	style="width:400px">
                		 	<a 	href="${home}class/ClassDetailProc?classname=${classinfo.classname}&&classcontent=${classinfo.contents}
    							 &&nickname=${classinfo.nickname}"
     				><img src="${home}/resources/assets/img/${classinfo.classname}.jpg"	 style="width: 300px; height:200px;"/></a>

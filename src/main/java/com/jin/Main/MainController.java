@@ -49,11 +49,13 @@ public class MainController {
 	List<String> usrgenre =iMainServ.getUsrgenre( (String)session.getAttribute("id") );	
 			//사용자 선호장르 기반 소셜
 	List<Socialmeeting> usrSocialList=iMainServ.getUsrsocial(usrgenre);
-			
-		logger.warn(usrSocialList.get(0).getMname());
 			//사용자 선호장르 기반 클래스
-	
-	
+	List<ClassInfo> usrClassList=iMainServ.getUsrClass(usrgenre);
+		
+		model.addAttribute("usrSocialList", usrSocialList);
+		model.addAttribute("usrClassList", usrClassList);
+		
+				
 		}
 
 		

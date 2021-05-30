@@ -75,7 +75,7 @@
                         <li class="nav-item"><a class="nav-link" href="${topHome}index?formpath=login">로그인</a></li>
                         <li class="nav-item"><a class="nav-link" href="${topHome}index?formpath=membership">회원가입</a></li>
                         	<%}else{ %>
-              	    	<li class="nav-item"><a class="nav-link" href="${topHome}index?formpath=profile">프로필</a></li>
+              	    	<li class="nav-item"><a class="nav-link" href="${topHome}index?formpath=profile/profileProc">프로필</a></li>
                         <li class="nav-item"><a class="nav-link" href="${topHome}index?formpath=login/logout">로그아웃</a></li>
 							<%} %>
                     </ul>

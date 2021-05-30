@@ -104,4 +104,10 @@ public class MainServiceImpl implements iMainService{
 		
 	}
 
+	@Override
+	public List<ClassInfo> getUsrClass(List<String> usrgenre) {
+		// TODO Auto-generated method stub
+		return iMainDao.getUsrClass(usrgenre);
+	}
+
 }

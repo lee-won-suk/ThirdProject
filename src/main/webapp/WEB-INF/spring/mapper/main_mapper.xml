@@ -56,7 +56,6 @@ where id=#{id}
 </select>
 
 <select	id="getUsrsocial" parameterType="String" resultType="com.jin.Main.Socialmeeting">
-
 select *
 from
 (
@@ -69,12 +68,29 @@ SELECT *
    ORDER BY DBMS_RANDOM.RANDOM
    
    )
-<![CDATA[where rownum<=3]]>
-
-
-
-	
+<![CDATA[where rownum<=3]]>	
 </select>
+
+<select	id="getUsrClass" parameterType="String" resultType="com.jin.Classes.ClassInfo">
+select *
+from
+(
+SELECT *
+	FROM ClassInfo	
+	where cgenre in
+	<foreach collection="list" index='index' item='item' open='(' close=')' separator=',' >
+	#{item}
+	</foreach>
+   ORDER BY DBMS_RANDOM.RANDOM
+   
+   )
+<![CDATA[where rownum<=3]]>	
+</select>
+
+
+
+
+
 
 
 

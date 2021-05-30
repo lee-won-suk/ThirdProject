@@ -15,4 +15,6 @@ public interface iMainService {
 
 	public List<Socialmeeting> getUsrsocial(List<String> usrgenre);
 
+	public List<ClassInfo> getUsrClass(List<String> usrgenre);
+
 }
