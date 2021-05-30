@@ -3,10 +3,6 @@ package com.jin.Social;
 import java.util.List;
 import java.util.Map;
 
-import com.jin.Classes.ClassInfo;
-import com.jin.Classes.Classcreateinfo;
-import com.jin.Classes.Classreviews;
-
 public interface ISocialDao {
 
 	public List<Socialmeeting> SocialMainProc();
