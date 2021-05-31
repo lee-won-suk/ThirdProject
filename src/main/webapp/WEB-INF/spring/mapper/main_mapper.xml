@@ -2,11 +2,94 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jin.Main.IMainDao">
 
-<select id="getMainSocial"  resultType="com.jin.Main.Socialmeeting">
-	SELECT Mname, Mgenre, MDetailgenre, Mcity, Mdetails, Mpeople, Mestablish
+
+<select id="getTotalSocial" parameterType="int" resultType="com.jin.Main.Socialmeeting">
+	SELECT Mname, Mpeople
 	FROM socialmeeting
- 
+	where mestablish >#{date}
 </select>
+
+
+<select id="getMainSocial" parameterType="Map"  resultType="float">
+
+ select nvl( avg(cnt/#{people}),0)       
+   from  (  
+     select     names as names , cnt as cnt  , md  as md
+        from  (      
+      SELECT mname as names , count(mdate)as cnt  ,  mdate as md
+       from socialmeetlist
+       group by mname, mdate 
+                    )
+           where names=#{name}
+    )   
+    <![CDATA[where rownum<=3]]>
+</select>
+
+
+<select id="getSocial" parameterType="String" resultType="com.jin.Main.Socialmeeting">
+	SELECT *
+	FROM socialmeeting
+	where mname=#{name}
+</select>
+
+
+<select	id="getClasses"  resultType="com.jin.Classes.ClassInfo">
+select * 
+from classinfo
+	where classname in(
+	select cs
+	            from(
+	            select classname as cs, sum(cpeople)as cnt
+	            from classcreateinfo
+	            group by classname
+	            order by cnt desc
+	            )
+	)
+<![CDATA[and rownum<=3]]>
+</select>
+
+
+<select	id="getUsrgenre"  resultType="String">
+select genre
+from member
+where id=#{id}
+</select>
+
+<select	id="getUsrsocial" parameterType="String" resultType="com.jin.Main.Socialmeeting">
+select *
+from
+(
+SELECT *
+	FROM socialmeeting	
+	where mgenre in
+	<foreach collection="list" index='index' item='item' open='(' close=')' separator=',' >
+	#{item}
+	</foreach>
+   ORDER BY DBMS_RANDOM.RANDOM
+   
+   )
+<![CDATA[where rownum<=3]]>	
+</select>
+
+<select	id="getUsrClass" parameterType="String" resultType="com.jin.Classes.ClassInfo">
+select *
+from
+(
+SELECT *
+	FROM ClassInfo	
+	where cgenre in
+	<foreach collection="list" index='index' item='item' open='(' close=')' separator=',' >
+	#{item}
+	</foreach>
+   ORDER BY DBMS_RANDOM.RANDOM
+   
+   )
+<![CDATA[where rownum<=3]]>	
+</select>
+
+
+
+
 
 
 

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.jin.Social.SocialMeetList;
 
-public interface IProfileDao {
+public interface IProfileService {
 
 	List<SocialMemberList> getjoinSocial(String nickname);
 
