@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.jin.Classes.ClassInfo;
 import com.jin.Classes.Classcreateinfo;
+import com.jin.Social.SocialCreateInfo;
 
 @Service
 public class MainServiceImpl implements iMainService{
@@ -108,6 +109,16 @@ public class MainServiceImpl implements iMainService{
 	public List<ClassInfo> getUsrClass(List<String> usrgenre) {
 		// TODO Auto-generated method stub
 		return iMainDao.getUsrClass(usrgenre);
+	}
+
+	@Override
+	public List<SocialCreateInfo> nowUsrList(String nickname) {
+		return iMainDao.nowUsrList(nickname);
+	}
+
+	@Override
+	public List<ClassInfo> getRecommendClass() {		
+		return  iMainDao.getRecommendClass();
 	}
 
 }

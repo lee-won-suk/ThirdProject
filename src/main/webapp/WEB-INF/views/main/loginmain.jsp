@@ -42,7 +42,7 @@
                   <c:if test="${ empty id	 }">
                		 <p align="left">인기있는 소셜 모임</p>
                		 
-               		 <table style="width: 1300px" border="1" >
+               		 <table style="width: 1300px"  >
                		 <tr	align="left">             		
                		 <c:forEach var="SocialList" items="${SocialList}"  >
                		 	<td >
@@ -53,10 +53,11 @@
                		 	</c:forEach> 	
                		 	</tr>
                		 	</table>
+               		 	<br/><br/>
                		 	
                		 	<p align="left">현재 인기있는 클래스</p>
                		 	
-               		 	<table style="width: 1300px" border="1" >
+               		 	<table style="width: 1300px"  >
                		 	<tr	align="left">
                		 	 <c:forEach var="classinfo" items="${ClassList}"  >
                		 	<td>
@@ -69,6 +70,7 @@
                		 	</c:forEach>
                		 	</tr>		 	
                		 </table>
+               		 <br/><br/>
                		 </c:if>
                		
                		
@@ -76,8 +78,43 @@
               
               
               <c:if test="${ ! empty id	 }">
+              		<p align="left"> ${nickname}님의 모임 소식</p>
+               		 <table style="width: 1300px" >
+               		 <tr	align="left">             		
+               		 <c:forEach var="nowusrLst" items="${nowusrLst}"  >
+               		 	<td style="width:400px">
+               		 	<img src="${home}/resources/assets/img/${nowusrLst.mname}.jpg"	 style="width: 300px; height:200px;"/></a>
+               		 		<br/>${nowusrLst.mname}<br/>
+               		 		${nowusrLst.mdate}
+							<br/>${nowusrLst.mstarttime} ${nowusrLst.mplace}<br/>							        		 		
+               		 	</td>
+               		 	</c:forEach> 	
+               		 	</tr>
+               		 	</table>
+               		 <br/><br/>
+              
+              
+              <p align="left">내 손으로 직접 만드는 생면 파스타 강의를 수강한 사람들이 함께 수강한 클래스</p>
+               		 <table style="width: 1300px" >
+               		 <tr	align="left">             		
+               		 <c:forEach var="recomendClassList" items="${recomendClassList}"  >
+               		 	<td style="width:400px">
+               		 	<a 	href="${home}class/ClassDetailProc?classname=${recomendClassList.classname}&&classcontent=${recomendClassList.contents}
+   							 &&nickname=${recomendClassList.nickname}">
+   							 <img src="${home}/resources/assets/img/${recomendClassList.classname}.jpg"	 style="width: 300px; height:200px;"/></a>
+               		 		<br/>${recomendClassList.classname}<br/>
+               		 		${recomendClassList.cgenre} ${recomendClassList.cdetailgenre}						        		 		
+               		 	</td>
+               		 	</c:forEach> 	
+               		 	</tr>
+               		 	</table>
+              			<br/><br/>
+              
+              
+              
+              
                		 <p align="left"> ${nickname}님께 추천드리는 소셜 모임</p>
-               		 <table style="width: 1300px" border="1" >
+               		 <table style="width: 1300px"  >
                		 <tr	align="left">             		
                		 <c:forEach var="usrSocialList" items="${usrSocialList}"  >
                		 	<td style="width:400px">
@@ -88,8 +125,11 @@
                		 	</c:forEach> 	
                		 	</tr>
                		 	</table>
-               		 	<p align="left">${nickname}님이 좋아하실만한 클래스</p>
-               		 	<table style="width: 1300px" border="1" >
+               		 	<br/><br/>
+               		 
+               		 
+               		 	<p align="left">${nickname}님이 추천드리는 클래스</p>
+               		 	<table style="width: 1300px"  >
                		 	<tr	align="left">
                		 	 <c:forEach var="classinfo" items="${usrClassList}"  >
                		 	<td	style="width:400px">
@@ -102,6 +142,7 @@
                		 	</c:forEach>
                		 	</tr>		 	
                		 </table>
+               		 <br/><br/> 
                		 </c:if>
                		
                		

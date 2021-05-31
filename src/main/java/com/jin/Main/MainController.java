@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.jin.Classes.ClassInfo;
 import com.jin.Classes.Classcreateinfo;
 import com.jin.Login.Member;
+import com.jin.Social.SocialCreateInfo;
 
 /**
  * Handles requests for the application home page.
@@ -46,7 +47,17 @@ public class MainController {
 		//사용자 선호 장르 가져오기
 		if((String)session.getAttribute("id")!=null)
 		{
-	List<String> usrgenre =iMainServ.getUsrgenre( (String)session.getAttribute("id") );	
+			List<String> usrgenre =iMainServ.getUsrgenre( (String)session.getAttribute("id") );	
+					
+			
+			
+			//사용자의 현재모임 일정 리스트
+			List<SocialCreateInfo> nowusrLst=iMainServ.nowUsrList( (String)session.getAttribute("nickname") );
+				
+			//추천 알고리즘 리스트
+			List<ClassInfo> recomendClassList=iMainServ.getRecommendClass();
+			
+			
 			//사용자 선호장르 기반 소셜
 	List<Socialmeeting> usrSocialList=iMainServ.getUsrsocial(usrgenre);
 			//사용자 선호장르 기반 클래스
@@ -54,7 +65,8 @@ public class MainController {
 		
 		model.addAttribute("usrSocialList", usrSocialList);
 		model.addAttribute("usrClassList", usrClassList);
-		
+		model.addAttribute("nowusrLst", nowusrLst);
+		model.addAttribute("recomendClassList", recomendClassList);
 				
 		}
 

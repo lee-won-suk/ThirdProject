@@ -89,6 +89,33 @@ SELECT *
 
 
 
+<select	id="nowUsrList" parameterType="String" resultType="com.jin.Social.SocialCreateInfo">
+select *
+from socialcreateinfo
+where mdate in
+    (
+    select mdate
+    from socialmeetlist 
+    where nickname='그림자'
+    )
+<![CDATA[and rownum<=3]]>
+    order by mdate asc       
+	
+</select>
+
+<select	id="getRecommendClass"  resultType="com.jin.Classes.ClassInfo">
+select *
+from ClassInfo
+where classname='맛과 멋을 사로잡는 한식의 품격!'
+</select>
+
+
+
+
+
+
+
+
 
 
 

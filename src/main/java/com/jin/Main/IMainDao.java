@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.jin.Classes.ClassInfo;
 import com.jin.Classes.Classcreateinfo;
+import com.jin.Social.SocialCreateInfo;
 
 public interface IMainDao {
 
@@ -21,5 +22,9 @@ public interface IMainDao {
 	public List<Socialmeeting> getUsrsocial(List<String> usrgenre);
 
 	public List<ClassInfo> getUsrClass(List<String> usrgenre);
+
+	public List<SocialCreateInfo> nowUsrList(String nickname);
+
+	public List<ClassInfo> getRecommendClass();
 
 }
