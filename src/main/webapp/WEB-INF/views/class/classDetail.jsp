@@ -46,9 +46,9 @@
 		<br/><br/>
 		<c:forEach var="createList" items="${createList}" varStatus="status"  >
 		
-		<div  class="test2"  >날짜 ${dateLst[status.index][0]}년${dateLst[status.index][1]}월${dateLst[status.index][2]}일  
-		<br/>시간${createList.starttime}
-		<br/> 장소${createList.place} 인원${createList.cpeople}
+		<div  class="test2"  >날짜 ${dateLst[status.index].year}년${dateLst[status.index].month}월${dateLst[status.index].day}일  
+		<br/>시간 ${timeLst[status.index].hour} : ${timeLst[status.index].min}
+		<br/> 장소${createList.place} 인원 ${createList.cpeople}명
 		</div>
 		<br/><br/>
 		</c:forEach>

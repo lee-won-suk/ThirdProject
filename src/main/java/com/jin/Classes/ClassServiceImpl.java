@@ -60,9 +60,11 @@ public class ClassServiceImpl implements IClassService {
 		getListMap.put("classname",classname);
 		getListMap.put("date",getdate());//가장 빠르면서 오늘날짜보다 이전엔 클래스 예정날짜를 가져와야 한다.
 		
+
+		List<Classcreateinfo> createList = iClassDao.getCreateList(getListMap);
 		
 		
-		return iClassDao.getCreateList(getListMap);
+		return createList;
 	}
 
 	

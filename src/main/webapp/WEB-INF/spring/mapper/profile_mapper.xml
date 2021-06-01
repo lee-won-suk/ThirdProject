@@ -10,16 +10,22 @@
 </select>
 
 
-<select id="getfutureSocial" parameterType="String" resultType="com.jin.Social.SocialMeetList">
+<select id="getfutureSocial" parameterType="Map" resultType="com.jin.Social.SocialMeetList">
 	SELECT *
 	FROM SocialMeetList
 	where nickname=#{nickname}
+	<![CDATA[
+	and mdate>=#{date}
+	]]>
 </select>
 
-<select id="getfutureClass" parameterType="String" resultType="com.jin.Profile.ClassDateList">
+<select id="getfutureClass" parameterType="Map" resultType="com.jin.Profile.ClassDateList">
 	SELECT *
 	FROM ClassDateList
 	where nickname=#{nickname}
+	<![CDATA[
+	and cdate>=#{date}
+	]]>
 </select>
 
 
