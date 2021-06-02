@@ -6,11 +6,37 @@
 <head>
 	<link rel="stylesheet" href="${home}resources/css/classdetail.css" type="text/css">
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+function gocal(){
+	
+	
+	window.open("${home}test.jsp",
+            "childForm", "width=570, height=350, resizable = no, scrollbars = no");
+
+
+	
+}
+
+</script>
+
 
 <center>
-<form action="${home }" method="post" >
-<input type="hidden" name="nickname" value='${nickname}'		/>
+
+<form id='frm'  method="get" >
+<input type="hidden" id="year" value='${dateLst[0].year}'		/>
+<input type="hidden" id="month" value='${dateLst[0].month}'/>
+<input type="hidden" id="day" value='${dateLst[0].day}'/>
+<input type="hidden" id="shour" value='${timeLst[0].hour}'/>
+<input type="hidden" id="smin" value='${timeLst[0].min}'/>
+<input type="hidden" id="ehour" value='${endtimeLst[0].hour}'/>
+<input type="hidden" id="emin" value='${endtimeLst[0].min}'/>
+<input type="hidden" id="classname" value='${classname}'/>
+
+
 <table class="classDatail" style="width: 1300px;"   >
+
 	<tr align="center" >
 		<td style="width: 80px; height:40px;" ></td>
 		<td style="width: 80px; height:40px;"></td>
@@ -56,16 +82,22 @@
 		
 		
 		</div>
-		<c:if test="${!empty createList   && !empty id  }"   >
-		<button  formaction="${home}class/ClassJoin?classname=${classname}&&classcontent=${classcontent}"  style="width: 100px; ">참가신청</button>
-		</c:if>
 		
+		<c:if test="${!empty createList   && !empty id  }"   >
+		<button id='authorize_button' style="width: 100px;" formaction="${home}class/ClassJoin?classname=${classname}&&classcontent=${classcontent}"
+		  >참가신청</button>
+		 <br/><button onclick="gocal()" >캘린더에 저장</button> 
+		</c:if>
+		 
+		 
 		
 		<button formaction="${home}class/ClassMemberDetailProc?classname=${classname}&&classcontent=${classcontent}" style="width: 140px;">클래스일정 추가</button>	
-		<%--<c:if test="${id==nickname}"   >
+		<%--
+		<c:if test="${id==nickname}"   >
 		<button formaction="${home}class/ClassJoin?classname=${classname}&&classcontent=${classcontent}" style="width: 100px;">클래스일정 추가</button>
 		</c:if>
-		 --%>
+		--%>
+		
 		</td>
 		
 				
@@ -140,3 +172,4 @@
 </table>
 </form>
 </center>
+

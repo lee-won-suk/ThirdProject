@@ -62,6 +62,7 @@ public class ClassController {
 		
 	List<Map<String,Integer>>  dateLst = new ArrayList<Map<String,Integer>>();
 	List<Map<String,Object>>  timeLst = new ArrayList<Map<String,Object>>();
+	List<Map<String,Object>>  endtimeLst = new ArrayList<Map<String,Object>>();
 	if(createList.size()!=0) 
 		{
 		for(Classcreateinfo item : createList)
@@ -79,9 +80,17 @@ public class ClassController {
 		
 			map2.put("hour", (item.getStarttime()-item.getStarttime()%100)/100 ) ;
 			map2.put("min", (String.format("%02d",min))	) ;
-		
-
 			timeLst.add(map2);
+			
+			
+			
+			
+			Map<String,Object> endmap=new HashMap<String,Object>();
+		    min=item.getStarttime()%100;
+		
+		    endmap.put("hour", (item.getEndtime()-item.getEndtime()%100)/100 ) ;
+		    endmap.put("min", (String.format("%02d",min))	) ;
+			endtimeLst.add(endmap);
 		}
 		}
 		
@@ -97,7 +106,7 @@ public class ClassController {
 		model.addAttribute("createList",createList);
 		model.addAttribute("dateLst",dateLst);
 		model.addAttribute("timeLst",timeLst);
-		
+		model.addAttribute("endtimeLst",endtimeLst);
 		return "forward:/index?formpath=classDetail";
 	}
 	

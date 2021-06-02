@@ -9,6 +9,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
@@ -28,6 +31,7 @@ import com.google.api.services.calendar.model.EventAttendee;
 import com.google.api.services.calendar.model.EventDateTime;
 import com.google.api.services.calendar.model.EventReminder;
 import com.google.common.reflect.ClassPath.ResourceInfo;
+import com.jin.Main.MainController;
 
 public class GoogleCalendar {
 
@@ -42,7 +46,7 @@ public class GoogleCalendar {
 	   private static final String CALENDAR_ID = "thirdcalender";
 
 
-
+	   private static final Logger logger = LoggerFactory.getLogger(GoogleCalendar.class);
 	   /**
 
 	    * Global instance of the scopes required by this quickstart.
@@ -56,7 +60,9 @@ public class GoogleCalendar {
 	   private static final String CLIENT_SECRET_DIR = "/client_secret.json";
 
 
-
+	   public void test() {
+		   logger.warn("test");
+	   }
 
 
 	   public static Event addEvent(Event event) throws IOException, GeneralSecurityException, GoogleJsonResponseException {
@@ -124,12 +130,14 @@ public class GoogleCalendar {
 	               .setAccessType("offline")
 
 	               .build();
-
+	       
+	       logger.warn(new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver()).authorize("user")+"");
+	       
 	       return new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver()).authorize("user");
 
 	   }
 	   
-	   
+	   	/*
 	   public Event makeEvent(ResourceInfo resourceInfo, List<ResourceSubscriber> subList) throws ParseException, IOException, GeneralSecurityException {
 
 		   Event event = new Event()
@@ -231,13 +239,8 @@ public class GoogleCalendar {
 
 
 		   return event;
+	}*/
 	   
 	   
 	   
-	   
-	   
-	   
-	   
-	   
-
-	}
+}

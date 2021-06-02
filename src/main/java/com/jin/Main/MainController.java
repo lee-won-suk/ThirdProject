@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jin.Classes.ClassInfo;
 import com.jin.Classes.Classcreateinfo;
+import com.jin.Classes.GoogleCalendar;
 import com.jin.Login.Member;
 import com.jin.Social.SocialCreateInfo;
 
@@ -36,6 +37,13 @@ public class MainController {
 	@RequestMapping(value = "/mainProc")
 	public String loginProc(Model model, Member member, HttpSession session) {
 
+		
+		GoogleCalendar cal=new GoogleCalendar();
+		cal.test();
+		
+		
+		
+		
 	
 		//현재 인기있는 소셜 모임
 		List<Socialmeeting> hotSocialList=iMainServ.getMainSocial();
