@@ -146,9 +146,8 @@ $(document).ready(function(){
       <tr align="center">
      </c:if>
      <td>
-    <a 	href="${home}social/SocialDetailProc?mname=${socialmeeting.mname}&&classcontent=${socialmeeting.mgenre}
-    &&mpeople=${socialmeeting.mpeople}"
-    	><img src="${home}/resources/assets/img/${classinfo.classname}.jpg"	 style="width: 300px; height:200px;"/></a>
+    <a 	href="${home}social/MoimMainProc">
+    <img src="${home}/resources/assets/img/${socialLst.mname}.jpg"	 style="width: 300px; height:200px;"/></a>
 		
 		<br/>
 		${socialLst.mname}<br/>

@@ -60,22 +60,53 @@ public class ClassController {
 		List<Classreviews> reviews= iClassServ.getReview(classname);
 		List<Classcreateinfo> createList= iClassServ.getCreateList(classname);
 		
-		List<int[]>  dateLst = new ArrayList<int[]>() ;
+	List<Map<String,Integer>>  dateLst = new ArrayList<Map<String,Integer>>();
+	List<Map<String,Object>>  timeLst = new ArrayList<Map<String,Object>>();
+	List<Map<String,Object>>  endtimeLst = new ArrayList<Map<String,Object>>();
+	if(createList.size()!=0) 
+		{
 		for(Classcreateinfo item : createList)
 		{
-			int [] data= new int [3];
-			data[0]=( item.getCdate()-(item.getCdate()%1000) )/10000      ;
-			data[1]= (  (item.getCdate()%1000)-(item.getCdate()%100)  )/100;
-			data[2]=(item.getCdate()%100);
-			dateLst.add(data);
+			Map<String,Integer> map=new HashMap<String, Integer>();
+			map.put("year",(item.getCdate()-(item.getCdate()%10000) )/10000) ;
+			map.put("month",(  (item.getCdate()%10000)-(item.getCdate()%100)  )/100  ) ;
+			map.put("day", item.getCdate()%100 ) ;
+
+			dateLst.add(map);
+
+			
+			Map<String,Object> map2=new HashMap<String,Object>();
+			int min=item.getStarttime()%100;
+		
+			map2.put("hour", (item.getStarttime()-item.getStarttime()%100)/100 ) ;
+			map2.put("min", (String.format("%02d",min))	) ;
+			timeLst.add(map2);
+			
+			
+			
+			
+			Map<String,Object> endmap=new HashMap<String,Object>();
+		    min=item.getStarttime()%100;
+		
+		    endmap.put("hour", (item.getEndtime()-item.getEndtime()%100)/100 ) ;
+		    endmap.put("min", (String.format("%02d",min))	) ;
+			endtimeLst.add(endmap);
 		}
+		}
+		
+		
+		
+		
+		
+		
 		model.addAttribute("nickname",nickname);		
 		model.addAttribute("classname",classname);
 		model.addAttribute("classcontent",classcontent);
 		model.addAttribute("reviews",reviews);
 		model.addAttribute("createList",createList);
 		model.addAttribute("dateLst",dateLst);
-		
+		model.addAttribute("timeLst",timeLst);
+		model.addAttribute("endtimeLst",endtimeLst);
 		return "forward:/index?formpath=classDetail";
 	}
 	
@@ -118,23 +149,23 @@ public class ClassController {
 		
 		return "forward:/index?formpath=classMain";
 	}
-	
-	
-	
-	
-	
-	
+		
 		@RequestMapping(value = "/WriteReview")
 		public String WriteReview(Model model , @RequestParam String classname,
 				@RequestParam String nickname,
 				@RequestParam String classcontent)
 		{	
 			
+			logger.warn(classname);
+			logger.warn(nickname);
+			logger.warn(classcontent);
+			
+			
 			
 			model.addAttribute("nickname",nickname);		
 			model.addAttribute("classname",classname);
 			model.addAttribute("classcontent",classcontent);
-
+			
 			return "forward:/index?formpath=classwriteForm";
 		}
 	

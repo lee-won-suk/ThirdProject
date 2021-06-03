@@ -82,7 +82,7 @@
                		 <table style="width: 1300px" >
                		 <tr	align="left">             		
                		 <c:forEach var="nowusrLst" items="${nowusrLst}"  >
-               		 	<td style="width:400px">
+               		 	<td style="width:300px">
                		 	<img src="${home}/resources/assets/img/${nowusrLst.mname}.jpg"	 style="width: 300px; height:200px;"/></a>
                		 		<br/>${nowusrLst.mname}<br/>
                		 		${nowusrLst.mdate}
@@ -98,7 +98,7 @@
                		 <table style="width: 1300px" >
                		 <tr	align="left">             		
                		 <c:forEach var="recomendClassList" items="${recomendClassList}"  >
-               		 	<td style="width:400px">
+               		 	<td style="width:300px">
                		 	<a 	href="${home}class/ClassDetailProc?classname=${recomendClassList.classname}&&classcontent=${recomendClassList.contents}
    							 &&nickname=${recomendClassList.nickname}">
    							 <img src="${home}/resources/assets/img/${recomendClassList.classname}.jpg"	 style="width: 300px; height:200px;"/></a>
@@ -117,7 +117,7 @@
                		 <table style="width: 1300px"  >
                		 <tr	align="left">             		
                		 <c:forEach var="usrSocialList" items="${usrSocialList}"  >
-               		 	<td style="width:400px">
+               		 	<td style="width:300px">
                		 	<img src="${home}/resources/assets/img/${usrSocialList.mname}.jpg"	 style="width: 300px; height:200px;"/></a>
                		 		<br/>${usrSocialList.mname}<br/>
 							${usrSocialList.mgenre} ${usrSocialList.mdetailgenre}<br/>							        		 		
@@ -128,11 +128,11 @@
                		 	<br/><br/>
                		 
                		 
-               		 	<p align="left">${nickname}님이 추천드리는 클래스</p>
+               		 	<p align="left">${nickname}님께 추천드리는 클래스</p>
                		 	<table style="width: 1300px"  >
                		 	<tr	align="left">
                		 	 <c:forEach var="classinfo" items="${usrClassList}"  >
-               		 	<td	style="width:400px">
+               		 	<td	style="width:300px">
                		 	<a 	href="${home}class/ClassDetailProc?classname=${classinfo.classname}&&classcontent=${classinfo.contents}
    							 &&nickname=${classinfo.nickname}"
     				><img src="${home}/resources/assets/img/${classinfo.classname}.jpg"	 style="width: 300px; height:200px;"/></a>

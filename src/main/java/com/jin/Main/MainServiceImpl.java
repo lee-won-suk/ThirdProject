@@ -63,6 +63,7 @@ public class MainServiceImpl implements iMainService{
 		LstMap.put("people", item.getMpeople());
 		//Âü°¡À²
 		float meetPercent=iMainDao.getMainSocial(LstMap) ;
+		logger.warn(meetPercent+"");
 		if( meetPercent>=0.6 )
 		Lst.add( iMainDao.getSocial(item.getMname()) );
 		
