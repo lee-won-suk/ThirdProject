@@ -128,7 +128,7 @@
                		 	<br/><br/>
                		 
                		 
-               		 	<p align="left">${nickname}님이 추천드리는 클래스</p>
+               		 	<p align="left">${nickname}님께 추천드리는 클래스</p>
                		 	<table style="width: 1300px"  >
                		 	<tr	align="left">
                		 	 <c:forEach var="classinfo" items="${usrClassList}"  >

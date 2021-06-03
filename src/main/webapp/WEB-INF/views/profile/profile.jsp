@@ -58,12 +58,14 @@
 		<div style="width: 600px; border: 1px solid"	>
 		참가예정 소셜모임 /클래스 리스트<br/>
 		
-		<c:forEach var="futureSocialList" items="${futureSocialList}"  >
-		${futureSocialList.mname} ${futureSocialList.mdate}	<br/>
+		<c:forEach var="futureSocialList" items="${futureSocialList}" varStatus="status"  >
+		 ${fsocialdateLst[status.index].year}년${fsocialdateLst[status.index].month}월${fsocialdateLst[status.index].day}일
+		 ${futureSocialList.mname} 	<br/>
 		</c:forEach>	
 		
-		<c:forEach var="futureclassList" items="${futureclassList}"  >
-		${futureclassList.classname} ${futureclassList.cdate}<br/>
+		<c:forEach var="futureclassList" items="${futureclassList}" varStatus="status"   >
+		${fclassdateLst[status.index].year}년${fclassdateLst[status.index].month}월${fclassdateLst[status.index].day}일
+		 ${futureclassList.classname}<br/>
 		</c:forEach>
 		
 		</div>	
