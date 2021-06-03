@@ -107,8 +107,10 @@ public class CommonController {
 	}
 	
 	
-	
-	
+	@RequestMapping(value = "/mapForm")
+	public String mapForm() {
+		return "common/map";
+	}
 	
 	
 	
