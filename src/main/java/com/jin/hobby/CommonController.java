@@ -23,6 +23,21 @@ public class CommonController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
+	@RequestMapping(value = "test")
+	public String test(Model model) {
+		
+		return "test";
+	}
+	@RequestMapping(value = "/test2")
+	public String test2(Model model) {
+		return "test2";
+	}
+	
+	
+	
+	
+	
+	
 	@RequestMapping(value = "/")
 	public String home(Model model) {
 		model.addAttribute("formpath", "main/mainProc");

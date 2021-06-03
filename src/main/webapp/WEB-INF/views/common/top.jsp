@@ -63,7 +63,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
                
-                <a class="navbar-brand" href="${topHome}index?formpath=loginmain"><img src="${topHome}resources/assets/img/navbar-logo.svg" alt="..."/></a>
+                <a class="navbar-brand" href="${topHome}index?formpath=main/mainProc"><img src="${topHome}resources/assets/img/navbar-logo.svg" alt="..."/></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
@@ -75,7 +75,7 @@
                         <li class="nav-item"><a class="nav-link" href="${topHome}index?formpath=login">로그인</a></li>
                         <li class="nav-item"><a class="nav-link" href="${topHome}index?formpath=membership">회원가입</a></li>
                         	<%}else{ %>
-              	    	<li class="nav-item"><a class="nav-link" href="${topHome}index?formpath=profile">프로필</a></li>
+              	    	<li class="nav-item"><a class="nav-link" href="${topHome}index?formpath=profile/profileProc">프로필</a></li>
                         <li class="nav-item"><a class="nav-link" href="${topHome}index?formpath=login/logout">로그아웃</a></li>
 							<%} %>
                     </ul>

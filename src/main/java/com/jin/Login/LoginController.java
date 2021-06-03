@@ -41,7 +41,7 @@ public class LoginController {
 		int loginResult = iLoginServ.LoginProc(member);
 		
 		//로그인 성공시
-		if(loginResult==LOGINSUCCESS) return "forward:/index?formpath=loginmain";
+		if(loginResult==LOGINSUCCESS) return "forward:/index?formpath=/main/mainProc";
 		  
 		// 틀렸을 경우 틀렸습니다 출력
 		 model.addAttribute("msg", "잘못된 계정정보입니다.");
@@ -53,7 +53,7 @@ public class LoginController {
 	@RequestMapping(value = "/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "main/loginmain";
+		return "forward:/main/mainProc";
 	}
 
 }
