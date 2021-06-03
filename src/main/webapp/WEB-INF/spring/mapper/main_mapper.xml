@@ -22,7 +22,6 @@
                     )
            where names=#{name}
     )   
-    <![CDATA[where rownum<=3]]>
 </select>
 
 

@@ -47,6 +47,8 @@ public class MainController {
 	
 		//현재 인기있는 소셜 모임
 		List<Socialmeeting> hotSocialList=iMainServ.getMainSocial();
+		
+		logger.warn( hotSocialList.size()+"");
 		//현재 인기있는 클래스	
 		List<ClassInfo> hotClassList=iMainServ.getMainClass();
 		
