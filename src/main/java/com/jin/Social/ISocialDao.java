@@ -7,12 +7,16 @@ public interface ISocialDao {
 
 	public List<Socialmeeting> SocialMainProc();
 	
-	public void SocialCreate(Socialmeeting smeeting);
+//	public void SocialInfo(Socialmeeting smeeting);
 	
-	public List<SocialCreateInfo> getMDetails(String mname);
+	public void SocialCreate(Socialmeeting smeeting);
 
-	public List<SocialCreateInfo> getMestablish(String mname);
+	public void SocialMoimCreate(SocialCreateInfo info);
 
+	
+	
+
+//	public List<> ClassSearch(Map<String, Object> searchMap);
 	
 /*	public List<Float> getStarVal(List<ClassInfo> classInfo);
 

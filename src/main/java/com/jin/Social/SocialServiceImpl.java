@@ -34,17 +34,17 @@ public class SocialServiceImpl implements ISocialService {
 		logger.warn("모임 생성이 완료되었습니다");
 		iSocialDao.SocialCreate(smeeting);
 	}
-	
+	//소모임 생성
 	@Override
-	public List<SocialCreateInfo> getMDetails(String mname) {
-		return null;
+	public void Moimadd(SocialCreateInfo info) {
+		logger.warn("소모임 생성이 완료되었습니다.");
+		iSocialDao.SocialMoimCreate(info);
 	}
-	
+	//소셜 모임 정보 보기
 	@Override
-	public List<SocialCreateInfo> getMestablish(String mname) {
-		return null;
+	public void SocialInfo(Socialmeeting smeeting) {
+//		iSocialDao.SocialInfo(smeeting);
 	}
-	
 	
 	/*
 	@Override

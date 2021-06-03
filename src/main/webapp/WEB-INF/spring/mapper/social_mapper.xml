@@ -8,14 +8,19 @@
 	where mgenre = '음악'
 </select>
 
-<select id="getMDetails" parameterType="String"  resultType="com.jin.Social.ISocialDao">
-	select * from classinfo
-	where cdetailgenre= #{datailname}
-</select>
+<!--   <select id="SocialInfo" parameterType="String"  resultType="com.jin.Social.ISocialDao">
+	select * from socialmeeting
+	where nickname = #{nickname}
+</select> -->
 
 <insert id="SocialCreate" parameterType="com.jin.Social.Socialmeeting">
 	INSERT INTO socialmeeting (Mname, Mgenre, MDetailgenre, Mcity, Mdetails, Mpeople, Mestablish)
 	VALUES (#{mname}, #{mgenre},#{mdetailgenre}, #{mcity}, #{mdetails}, 1, 1)
+</insert>
+
+<insert id="SocialMoimCreate" parameterType="com.jin.Social.SocialCreateInfo">
+	INSERT INTO SOCIALCREATEINFO (MNAME, MCDETAILS,MDATE, MPLACE, MSTARTTIME, MENDTIME, MONLINE)
+	VALUES ( #{mname},#{mcdetails},#{mdate},#{mplace},#{mstarttime},#{mendtime},#{monline} )
 </insert>
 <!-- 
 <insert id="ClassCreate" parameterType="com.jin.Classes.ClassInfo">

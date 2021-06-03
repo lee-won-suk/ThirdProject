@@ -26,6 +26,10 @@
 	p:mapperInterface="com.jin.Classes.IClassDao"
 	p:sqlSessionFactory-ref="sqlSessionFactoryBean"/>
 	
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean"
+	id="MembermapperFactoryBean"
+	p:mapperInterface="com.jin.Membership.IMemberDao"
+	p:sqlSessionFactory-ref="sqlSessionFactoryBean"/>
 	
 	<bean class="org.mybatis.spring.mapper.MapperFactoryBean"
 	id="LoginmapperFactoryBean"
@@ -50,7 +54,10 @@
 	p:mapperInterface="com.jin.Social.ISocialDao"
 	p:sqlSessionFactory-ref="sqlSessionFactoryBean"/>
 	
-	
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean"
+	id="MapmapperFactoryBean"
+	p:mapperInterface="com.jin.map.IMapDao"
+	p:sqlSessionFactory-ref="sqlSessionFactoryBean"/>
 
 	
 	
