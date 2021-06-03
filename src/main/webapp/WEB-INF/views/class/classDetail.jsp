@@ -23,7 +23,9 @@ function gocal(){
 
 <center>
  
-<form id='frm' action="${home }"  method="post" >
+<form id='frm'   method="post" >
+<input type="hidden" name="nickname" value='${nickname}'	/>
+<input type="hidden" name="classcontent" value='${classcontent}'	/>
 <input type="hidden" id="year" value='${dateLst[0].year}'		/>
 <input type="hidden" id="month" value='${dateLst[0].month}'/>
 <input type="hidden" id="day" value='${dateLst[0].day}'/>
@@ -31,7 +33,7 @@ function gocal(){
 <input type="hidden" id="smin" value='${timeLst[0].min}'/>
 <input type="hidden" id="ehour" value='${endtimeLst[0].hour}'/>
 <input type="hidden" id="emin" value='${endtimeLst[0].min}'/>
-<input type="hidden" id="classname" value='${classname}'/>
+<input type="hidden" name="classname"  id="classname" value='${classname}'/>
 
 
 <table class="classDatail" style="width: 1300px;"   >
@@ -81,18 +83,18 @@ function gocal(){
 		
 		
 		</div>
-		
 		<c:if test="${!empty createList   && !empty id  }"   >
-		<button id='authorize_button' style="width: 100px;" formaction="${home}class/ClassJoin?classname=${classname}&&classcontent=${classcontent}"
+		<button id='authorize_button' style="width: 100px;" formaction="${home}class/ClassJoin"
 		  >참가신청</button>
-		<br/><button onclick="gocal()" >캘린더에 저장</button>
+		  
+		<br/><button type="button" onclick="gocal()" >캘린더에 저장</button>
 		</c:if>
 		 
 		 
 		
+	<button  formaction="${home}class/ClassMemberDetailProc" style="width: 140px;">클래스일정 추가</button>
 	
 		<c:if test="${id==nickname}"   >
-		<button formaction="${home}class/ClassJoin?classname=${classname}&&classcontent=${classcontent}" style="width: 100px;">클래스일정 추가</button>
 		</c:if>
 		
 		
@@ -137,10 +139,9 @@ function gocal(){
 		</c:forEach>
 
 		
-		
 
-   <button  class="more" formaction="${home}class/WriteReview?classname=${classname}&
-   nickname=${nickname}&classcontent=${classcontent}" >
+
+   <button  class="more" formaction="${home}class/WriteReview" >
         후기 남기기
       </button>
 	<button class="more">

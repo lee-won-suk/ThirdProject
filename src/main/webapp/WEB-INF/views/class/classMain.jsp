@@ -146,7 +146,7 @@ $(document).ready(function(){
    <c:when test="${classLst != null && fn:length(classLst) > 0 }">
     <c:forEach var="classinfo" items="${classLst}" varStatus="status" >
      <c:if test="{i%j == 0}">
-      <tr align="center">
+      <tr align="center" style="width: 300px">
      </c:if>
      <td>
     <a 	href="${home}class/ClassDetailProc?classname=${classinfo.classname}&&classcontent=${classinfo.contents}

@@ -109,8 +109,8 @@
     <option value=23>23</option>
 	</select> 			
 	<select name="startmin">
-    <option value="01">30</option>
-    <option value="02">00</option>
+    <option value="30">30</option>
+    <option value="00">00</option>
     </select> 		
 	</td>
 
