@@ -43,7 +43,7 @@
     	 let emin=  opener.document.getElementById("emin").value;
     	 let classname=  opener.document.getElementById("classname").value;
     	    
-    	   
+    	 
     	 var event = {
 		  		  'summary': classname ,
 		  		  'location': '서울특별시 성북구 ',
@@ -170,9 +170,10 @@
           'maxResults': 10,
           'orderBy': 'startTime'
         }).then(function(response) {
+        		
           var events = response.result.items;
           appendPre('Upcoming events:');
-
+			
           if (events.length > 0) {
             for (i = 0; i < events.length; i++) {
               var event = events[i];
@@ -184,12 +185,14 @@
             }
             
             
-            test();	
+            
             
        
           } else {
             appendPre('No upcoming events found.');
           }
+          
+          test();
         });
       }
 

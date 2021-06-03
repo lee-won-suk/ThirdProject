@@ -149,23 +149,23 @@ public class ClassController {
 		
 		return "forward:/index?formpath=classMain";
 	}
-	
-	
-	
-	
-	
-	
+		
 		@RequestMapping(value = "/WriteReview")
-		public String WriteReview(Model model /*, @RequestParam String classname,
+		public String WriteReview(Model model , @RequestParam String classname,
 				@RequestParam String nickname,
-				@RequestParam String classcontent*/)
+				@RequestParam String classcontent)
 		{	
 			
-			/*
+			logger.warn(classname);
+			logger.warn(nickname);
+			logger.warn(classcontent);
+			
+			
+			
 			model.addAttribute("nickname",nickname);		
 			model.addAttribute("classname",classname);
 			model.addAttribute("classcontent",classcontent);
-			*/
+			
 			return "forward:/index?formpath=classwriteForm";
 		}
 	

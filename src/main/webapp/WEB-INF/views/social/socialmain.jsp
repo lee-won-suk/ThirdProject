@@ -147,7 +147,7 @@ $(document).ready(function(){
      </c:if>
      <td>
     <a 	href="${home}social/MoimMainProc">
-    <img src="${home}/resources/assets/img/${classinfo.classname}.jpg"	 style="width: 300px; height:200px;"/></a>
+    <img src="${home}/resources/assets/img/${socialLst.mname}.jpg"	 style="width: 300px; height:200px;"/></a>
 		
 		<br/>
 		${socialLst.mname}<br/>
