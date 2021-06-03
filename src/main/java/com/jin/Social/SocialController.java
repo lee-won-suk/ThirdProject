@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -18,9 +19,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.jin.Classes.ClassInfo;
 import com.jin.Classes.Classcreateinfo;
@@ -49,29 +52,11 @@ public class SocialController {
 		return "forward:/index?formpath=socialmain";
 	}
 	
-	//소셜 상세 설명 페이지 이동
-		@RequestMapping(value = "/SocialDetailProc")
-		public String SocialDetailProc(Model model , @RequestParam String mname, @RequestParam String mgenre)
-		{
-			List<SocialCreateInfo> mdetails= iSocialServ.getMDetails(mname);
-			List<SocialCreateInfo> mestablish= iSocialServ.getMestablish(mname);
-			
-			List<int[]>  dateLst = new ArrayList<int[]>() ;
-			for(SocialCreateInfo item : mestablish)
-			{
-				int [] data= new int [3];
-				data[0]=( item.getMdate()-(item.getMdate()%1000) )/10000      ;
-				data[1]= (  (item.getMdate()%1000)-(item.getMdate()%100)  )/100;
-				data[2]=(item.getMdate()%100);
-				dateLst.add(data);
-			}
-			model.addAttribute("mname", mname);		
-			model.addAttribute("mgenre",mgenre);
-			model.addAttribute("mestablish",mestablish);
-			model.addAttribute("mdetails", mdetails);
-			model.addAttribute("dateLst",dateLst);
-			
-			return "forward:/index?formpath=CreateInnerSocial";
+	//소셜 상세 페이지 이동
+		@RequestMapping(value = "/MoimMainProc")
+		public String MoimMainProc(Socialmeeting smeeting) {
+			iSocialServ.SocialInfo(smeeting);
+			return "forward:/index?formpath=moimmain";
 		}
 	
 		@RequestMapping(value = "/SocialCreate")
@@ -80,12 +65,23 @@ public class SocialController {
 			return "forward:/index?formpath=classMain";
 		}
 		
-	
-	
-	
-	
-	
-	
-	
-	
+		//소모임 개최 추가하기
+		@RequestMapping(value = "/MoimaddProc")
+		public String MoimaddProc(Model model, @RequestParam int month, @RequestParam int day,
+				@RequestParam int year, SocialCreateInfo info, @RequestParam String mname,
+				@RequestParam int starthour, @RequestParam int startmin, @RequestParam int endhour,
+				@RequestParam int endmin) {
+			
+			
+			info.setMdate((year*10000)+(month*100)+day);
+			info.setMstarttime((starthour*100)+startmin);
+			info.setMendtime((endhour*100)+endmin);
+			
+			model.addAttribute("mname",mname);
+			
+			iSocialServ.Moimadd(info);
+			logger.warn(mname);
+			return "forward:/social/SocialMainProc";
+			
+		}
 }
