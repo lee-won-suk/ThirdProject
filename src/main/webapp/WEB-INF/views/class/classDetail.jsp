@@ -16,15 +16,14 @@ function gocal(){
             "childForm", "width=570, height=350, resizable = no, scrollbars = no");
 
 
-	
 }
 
 </script>
 
 
 <center>
-
-<form id='frm'  method="get" >
+ 
+<form id='frm' action="${home }"  method="post" >
 <input type="hidden" id="year" value='${dateLst[0].year}'		/>
 <input type="hidden" id="month" value='${dateLst[0].month}'/>
 <input type="hidden" id="day" value='${dateLst[0].day}'/>
@@ -86,18 +85,18 @@ function gocal(){
 		<c:if test="${!empty createList   && !empty id  }"   >
 		<button id='authorize_button' style="width: 100px;" formaction="${home}class/ClassJoin?classname=${classname}&&classcontent=${classcontent}"
 		  >참가신청</button>
-		 <br/><button onclick="gocal()" >캘린더에 저장</button> 
+		<br/><button onclick="gocal()" >캘린더에 저장</button>
 		</c:if>
 		 
 		 
 		
-		<button formaction="${home}class/ClassMemberDetailProc?classname=${classname}&&classcontent=${classcontent}" style="width: 140px;">클래스일정 추가</button>	
-		<%--
+	
 		<c:if test="${id==nickname}"   >
 		<button formaction="${home}class/ClassJoin?classname=${classname}&&classcontent=${classcontent}" style="width: 100px;">클래스일정 추가</button>
 		</c:if>
-		--%>
 		
+		
+		 
 		</td>
 		
 				
@@ -140,8 +139,8 @@ function gocal(){
 		
 		
 
-   <button class="more" formaction="${home}class/WriteReview?classname=${classname}&&
-   nickname=${nickname}&&classcontent=${classcontent}">
+   <button  class="more" formaction="${home}class/WriteReview?classname=${classname}&
+   nickname=${nickname}&classcontent=${classcontent}" >
         후기 남기기
       </button>
 	<button class="more">
