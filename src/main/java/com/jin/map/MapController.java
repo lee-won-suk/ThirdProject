@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -19,10 +20,17 @@ public class MapController {
 	
 	//소셜 상세 페이지 이동
 			@RequestMapping(value = "/Searching")
-			public String Searching(@RequestParam String searchname) {
+			public String Searching(Model model,@RequestParam String searchname) {
+				
+				
 				Map locationAddressMap=iMServ.Searching(searchname);
 				
 				logger.warn(locationAddressMap.getLat()+"");
+				
+				
 				return "forward:/mapForm";
 			}
+			
+			
+			
 }

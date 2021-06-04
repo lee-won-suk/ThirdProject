@@ -161,15 +161,13 @@ function gocal(){
 	</tr>
 	
 	<tr align="center">
-		<td  border: 1px solid   style="width: 80px; height:40px;" colspan="5"  >
-		<div align="center" style="width:600px; height:200px; border: 1px solid ; ">
-		<input type="image" style="width:600px; height:200px;"/>
-		</div>
-		</td>
-		
-		
+		<td     style="width: 80px; height:40px;" colspan="5"  >
+				
+		</td>		
 	</tr>
 </table>
+<img   style="width:1000px; height:300px; position:relative;   left: -150px	"/>
+
 </form>
 </center>
 

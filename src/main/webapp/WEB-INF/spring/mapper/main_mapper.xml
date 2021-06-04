@@ -81,7 +81,6 @@ SELECT *
 	#{item}
 	</foreach>
    ORDER BY DBMS_RANDOM.RANDOM
-   
    )
 <![CDATA[where rownum<=3]]>	
 </select>
@@ -95,7 +94,7 @@ where mdate in
     (
     select mdate
     from socialmeetlist 
-    where nickname='그림자'
+    where nickname=#{nickname}
     )
 <![CDATA[and rownum<=3]]>
     order by mdate asc       

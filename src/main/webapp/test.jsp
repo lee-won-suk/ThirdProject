@@ -3,14 +3,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Google Calendar API Quickstart</title>
     <meta charset="utf-8" />
   </head>
   <body>
-    <p>Google Calendar API Quickstart</p>
-      <!--Add buttons to initiate auth sequence and sign out-->
-            <button id="authorize_button" >인증 후 캘린더 저장</button>
-    <button id="signout_button" >로그아웃</button>      
+    <button id="authorize_button" >인증 후 캘린더 저장</button>
+    <button id="signout_button" >로그아웃 및 종료</button>      
     <pre id="content" style="white-space: pre-wrap;"></pre>   
    <script type="text/javascript">
       // Client ID and API key from the Developer Console
@@ -76,7 +73,9 @@
     	  		});
 
     	  		request.execute(function(event) {
-    	  		  appendPre('Event created: ' + event.htmlLink);
+    	  		  //appendPre('Event created: ' + event.htmlLink);
+    	  		appendPre('캘린더에 추가 완료. 로그아웃 및 종료 버튼을 눌러주세요.');
+  	  		  
     	  		});
 
     	  
@@ -120,6 +119,10 @@
           authorizeButton.style.display = 'none';
           signoutButton.style.display = 'block';
           listUpcomingEvents();
+         
+         // handleSignoutClick;
+          
+
         } else {
           authorizeButton.style.display = 'block';
           signoutButton.style.display = 'none';
@@ -171,27 +174,7 @@
           'orderBy': 'startTime'
         }).then(function(response) {
         		
-          var events = response.result.items;
-          appendPre('Upcoming events:');
-			
-          if (events.length > 0) {
-            for (i = 0; i < events.length; i++) {
-              var event = events[i];
-              var when = event.start.dateTime;
-              if (!when) {
-                when = event.start.date;
-              }
-              appendPre(event.summary + ' (' + when + ')')
-            }
-            
-            
-            
-            
-       
-          } else {
-            appendPre('No upcoming events found.');
-          }
-          
+   
           test();
         });
       }

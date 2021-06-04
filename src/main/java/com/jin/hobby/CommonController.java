@@ -28,12 +28,12 @@ public class CommonController {
 		
 		return "test";
 	}
-	@RequestMapping(value = "/test2")
-	public String test2(Model model) {
-		return "test2";
+	
+	
+	@RequestMapping(value = "/mapForm")
+	public String mapForm() {
+		return "/common/map";
 	}
-	
-	
 	
 	
 	
@@ -122,10 +122,7 @@ public class CommonController {
 	}
 	
 	
-	@RequestMapping(value = "/mapForm")
-	public String mapForm() {
-		return "common/map";
-	}
+	
 	
 	
 	
