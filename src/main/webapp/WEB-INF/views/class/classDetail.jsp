@@ -166,7 +166,7 @@ function gocal(){
 		</td>		
 	</tr>
 </table>
-<img   style="width:1000px; height:300px; position:relative;   left: -150px	"/>
+<img src="${home}resources/assets/img/광고이미지.jpg"    style="width:1000px; height:300px; position:relative;   left: -150px	"/>
 
 </form>
 </center>
