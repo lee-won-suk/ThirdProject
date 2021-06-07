@@ -153,7 +153,7 @@ $(document).ready(function(){
 		${socialLst.mname}<br/>
 		
 		<br/>
-		지역(수정중) ${socialLst.mcity} 
+		${socialLst.mcity} 
 		</td>
     <c:if test="${i%j == j-1}">
      </tr><tr><td><br/></td></tr>

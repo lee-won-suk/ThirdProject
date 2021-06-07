@@ -160,7 +160,7 @@ $(document).ready(function(){
 		<c:if test="${ empty starvalue[status.index] }">0.0</c:if>  
 		${classinfo.price}<br/>
 		<c:if test="${classinfo.conline eq 1}">온라인</c:if>
-		<c:if test="${classinfo.conline eq 0}">오프라인</c:if> 지역(수정중)
+		<c:if test="${classinfo.conline eq 0}">오프라인</c:if> 서울
 		</td>
     <c:if test="${i%j == j-1}">
      </tr><tr><td><br/></td></tr>
