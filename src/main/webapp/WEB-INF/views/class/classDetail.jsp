@@ -91,10 +91,8 @@ function gocal(){
 		</c:if>
 		 
 		 
-		
-	<button  formaction="${home}class/ClassMemberDetailProc" style="width: 140px;">클래스일정 추가</button>
-	
-		<c:if test="${id==nickname}"   >
+		<c:if test="${id==nickname}">
+		<button  formaction="${home}class/ClassMemberDetailProc" style="width: 140px;">클래스일정 추가</button>
 		</c:if>
 		
 		
