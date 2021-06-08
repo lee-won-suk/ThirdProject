@@ -152,17 +152,13 @@ public class ClassController {
 		
 		@RequestMapping(value = "/WriteReview")
 		public String WriteReview(Model model , @RequestParam String classname,
-				@RequestParam String nickname,
+				HttpSession session,
 				@RequestParam String classcontent)
 		{	
 			
-			logger.warn(classname);
-			logger.warn(nickname);
-			logger.warn(classcontent);
 			
 			
-			
-			model.addAttribute("nickname",nickname);		
+			model.addAttribute("nickname",(String)session.getAttribute("nickname"));		
 			model.addAttribute("classname",classname);
 			model.addAttribute("classcontent",classcontent);
 			
